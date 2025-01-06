@@ -20,18 +20,23 @@ class Program
         }
 
 
-
-        PrintName("devops");
+        PrintNameWithRecurse("devops",5);
+       
 
     }
 
-    static void PrintName(string str)
+    private static void PrintNameWithRecurse(string str, int count)
     {
-        if (string.IsNullOrEmpty(str))
+
+        if (count == 0)
             return;
 
-        Console.Write(str[0]);
-        PrintName(str.Substring(1));
+        // Print the name
+        Console.WriteLine(str);
+
+        // Recursive call with decremented count
+        PrintName(str, count - 1);
+
     }
 
     static string[] GetAllMemberInTeam()
