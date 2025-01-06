@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleArgumentsApp1": {
+      "commandName": "Project",
+      "commandLineArgs": "rrd dotnet markonda"
+    }
+  }
+}
