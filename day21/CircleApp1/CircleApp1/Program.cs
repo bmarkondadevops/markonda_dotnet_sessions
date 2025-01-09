@@ -10,11 +10,11 @@ namespace CircleApp1
         {
             // Create a new Circle object
             Circle circle = new Circle();
-            circle.Radius = 5.0f;
+            circle.radius = 5.0f;
 
             // Calculate and display the area
             float area = circle.CalculateArea();
-            Console.WriteLine($"The area of the circle with radius {circle.Radius} is {area}");
+            Console.WriteLine($"The area of the circle with radius {circle.radius} is {area}");
 
         }
     }
