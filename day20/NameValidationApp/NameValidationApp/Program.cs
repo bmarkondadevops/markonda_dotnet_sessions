@@ -16,23 +16,30 @@ class Program
             {
                 input += keyInfo.KeyChar;
                 Console.Write(keyInfo.KeyChar); // Echo the character back to the console
+               
             }
+
             else if (keyInfo.Key == ConsoleKey.Backspace && input.Length > 0)
             {
                 input = input.Substring(0, input.Length - 1);
                 Console.Write("\b \b"); // Backspace and clear the character
+                
             }
             else if (keyInfo.Key == ConsoleKey.Enter)
-            {
+            {               
                 break; // Exit loop when Enter is pressed
             }
             else
             {
                 // Ignore other keys or provide feedback for invalid input
                 Console.Beep(); // Beep to indicate invalid input
+                Console.WriteLine("Invalid input.Please provide valid input characters[a..zA..Z]");
             }
-        }
 
-        Console.WriteLine("\nValid input: " + input);
+
+        }        
+        
+        Console.WriteLine("\n Valid input: " + input);
+
     }
 }
