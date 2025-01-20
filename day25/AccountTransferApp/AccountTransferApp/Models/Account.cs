@@ -12,6 +12,14 @@ namespace AccountTransferApp.Models
         private string _accountNumber; 
         private double _balance;
 
+
+
+        public Account(string accountNumber, double initialBalance)
+        {
+            this._accountNumber = accountNumber;
+            this._balance = initialBalance;
+        }
+
         public string AccountNumber
         {
             get
@@ -28,11 +36,6 @@ namespace AccountTransferApp.Models
             }
         }
 
-        public Account(string accountNumber, double initialBalance)
-        {
-            _accountNumber = accountNumber;
-            _balance = initialBalance;
-        }
 
         public void Deposit(double amount)
         {
