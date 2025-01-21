@@ -12,8 +12,6 @@ namespace AccountTransferApp.Models
         private string _accountNumber; 
         private double _balance;
 
-
-
         public Account(string accountNumber, double initialBalance)
         {
             this._accountNumber = accountNumber;
