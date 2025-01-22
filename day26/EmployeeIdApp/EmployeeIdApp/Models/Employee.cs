@@ -9,7 +9,7 @@ namespace EmployeeIdApp.Models
     internal class Employee
     {
 
-        public int _employeeId;
+        private readonly int _employeeId;
         public string _name;
 
         public Employee(int employeeId,string name) {
