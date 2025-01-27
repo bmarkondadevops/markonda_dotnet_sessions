@@ -28,8 +28,8 @@ namespace EmployeeSalaryApp
             Console.WriteLine($"Employee name::{emp.Name}" +
                 $"\nEmployee ID::{emp.EmployeeId}" +
                 $"\nBasic Salary::{emp.BasicSalary}" +
-                $"\nBasic Salary::{calculateHRA}" +
-                $"\nBasic Salary::{calculateDA}" +
+                $"\Employee HRA:{calculateHRA}" +
+                $"\nEmployee DA::{calculateDA}" +
                 $"\nTotal Salary::{totalSalary}");              
 
             Console.WriteLine("");

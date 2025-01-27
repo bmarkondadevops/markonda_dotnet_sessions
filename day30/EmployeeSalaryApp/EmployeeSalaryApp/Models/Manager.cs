@@ -20,12 +20,12 @@ namespace EmployeeSalaryApp.Models
 
         public override double CalculateDA()
         {
-            return BasicSalary * 0.18; 
+            return BasicSalary * 0.18;
         }
 
         public override double CalculatePerformanceAllowance()
         {
-            return 50000; 
+            return 50000;
         }
 
         // Implementing the abstract method.
