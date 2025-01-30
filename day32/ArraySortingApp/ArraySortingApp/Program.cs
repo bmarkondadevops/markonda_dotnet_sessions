@@ -9,23 +9,53 @@ namespace ArraySortingApp
             //Create string array
             string[] array = { "orange", "markonda", "banana", "grape" };
 
-            Console.WriteLine("Print reverse string same array");
-            for (int i = array.Length - 1; i >= 0; i--)
-            {               
+            int startIndex = 0; int endIndex = array.Length - 1;
+
+            ArrayElementinReverseOrder(array);
+
+            Console.WriteLine("Array In reverse order ->");
+            for (int i = 0; i < array.Length; i++)
+            {
                 Console.WriteLine(array[i]);
             }
-            Console.WriteLine("");
 
-            //Print before sorting
-            Console.WriteLine("Before sorting:");
-            PrintArray(array);
 
-            //Sort the array elements
-            BubbleSort(array);
+            //Console.WriteLine("Print reverse string same array");
+            //for (int i = array.Length - 1; i >= 0; i--)
+            //{               
+            //    Console.WriteLine(array[i]);
+            //}
+            //Console.WriteLine("");
 
-            //Print after softing
-            Console.WriteLine("After sorting:");
-            PrintArray(array);
+            ////Print before sorting
+            //Console.WriteLine("Before sorting:");
+            //PrintArray(array);
+
+            ////Sort the array elements
+            //BubbleSort(array);
+
+            ////Print after softing
+            //Console.WriteLine("After sorting:");
+            //PrintArray(array);
+        }
+
+
+        private static void ArrayElementinReverseOrder(string[] array)
+        {
+            int left = 0;
+            int right = array.Length - 1;
+
+            while (left < right)
+            {
+                // Swap elements
+                string temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+
+                // Move towards the center
+                left++;
+                right--;
+            }
         }
 
         private static void PrintArray(string[] array)
