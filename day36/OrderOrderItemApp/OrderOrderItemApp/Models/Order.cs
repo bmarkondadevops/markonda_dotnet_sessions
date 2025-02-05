@@ -35,7 +35,7 @@ namespace OrderOrderItemApp.Models
             }
 
             // Calculate total cost
-            decimal totalCost = (decimal)Items.Sum(i => i._quantity * i._price);
+            decimal totalCost = (decimal)Items.Sum(i => i._quantity * i._price);           
 
             Console.WriteLine($"Total Cost: {totalCost}");
 

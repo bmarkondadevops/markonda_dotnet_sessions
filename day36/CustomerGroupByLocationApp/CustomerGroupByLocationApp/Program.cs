@@ -10,6 +10,7 @@ namespace CustomerGroupByLocationApp
             var customers = new List<Customer>
         {
             new Customer("Markonda", "Chennai"),
+            new Customer("Preethi", "Chennai"),
             new Customer("Bhanu", "Hyderabad"),
             new Customer("Preem", "New York"),
             new Customer("David", "Chicago"),
