@@ -10,7 +10,6 @@ namespace AccountClassLibrary.Models
     {
         public void Widthdraw(double amount);
         public void Deposit(double amount);
-
-        public void PrintBalanceSheet(Account account);
+        public void PrintBalanceSheet();
     }
 }

@@ -8,6 +8,6 @@ namespace AccountClassLibrary.Models
 {
     public enum TypeAccount
     {
-        SAVING,CURRENT,SALARY,FIXEDDEPOSIT
+        SAVING,CURRENT,SALARY
     }
 }

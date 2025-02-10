@@ -6,31 +6,45 @@ using System.Threading.Tasks;
 
 namespace AccountClassLibrary.Models
 {
-    public class Account
+    public class Account:IAccountDepositWithdraw
     {
-        private string _id;
-        private string _name;
-        protected double _balance;
-        private TypeAccount _accountype;
+        private readonly string _accountNo;
+        private readonly string _name;
+        private double _balance;
 
-        public Account(string id, string name, double balance,TypeAccount accounttype)
+        public Account(string accountNo, string name, double balance)
         {
-
+            _accountNo = accountNo;
             _name = name;
             _balance = balance;
-            _id = id;
-            _accountype = accounttype;
         }
 
+
+        public string AccountNumber { get { return _accountNo; } }
+        public string Name { get { return _name; } }
         public double Balance { get { return _balance; } }
-        public string Name { get { return _name; } }       
-        public string Id  { get { return _id; }  }
-        public TypeAccount AccountType { get { return _accountype; } }
 
-
-        public override string ToString()
+        public void Deposit(double amount)
         {
-            return $"Id::{_id},Name::{_name}, Balance::{_balance},AccountType:{_accountype}";
+            _balance += amount;
+        }
+
+        public void Widthdraw(double amount)
+        {
+            if (_balance - amount < 500)
+            {
+                var ex = new Exception("No funds, min balance:1000");
+                throw ex;
+
+            }
+            _balance = _balance - amount;
+        }
+
+        public void PrintBalanceSheet()
+        {
+            Console.WriteLine($"Account Number: {AccountNumber}" +
+            $", Account Name: {Name}" +
+            $", Balance: {Balance}");
         }
 
     }

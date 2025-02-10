@@ -7,18 +7,21 @@ namespace AccountFactoryConsoleApp
     {
         static void Main(string[] args)
         {
-            Account account;
-            account = new SavingAccount("10001", "Markonda", 5000,TypeAccount.SAVING);
-           // account.Withdra(500); //not calling
-            PrintBalanceSheet(account);          
+            var accountFactory = new AccountFactory();
+            
+            //Saving account 
+            IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING);
+            sAccount.Deposit(500);
+            sAccount.PrintBalanceSheet();
+
+            //Current account
+            IAccountDepositWithdraw cAccount = accountFactory.AccountCreation(TypeAccount.CURRENT);
+            cAccount.Deposit(1000);
+            cAccount.PrintBalanceSheet();
+
+
         }
 
-        private static void PrintBalanceSheet(Account account)
-        {
-            Console.WriteLine($"Account Number: {account.Id}" +
-                $", Account Name: {account.Name}" +
-                $", Balance: {account.Balance}" +
-                $", Account Type: {account.AccountType.ToString()}");
-        }
+      
     }
 }

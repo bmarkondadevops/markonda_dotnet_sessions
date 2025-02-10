@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 
 namespace AccountClassLibrary.Models
 {
-    public class CurrentAccount : Account, IAccountDepositWithdraw
+    public class CurrentAccount : IAccountDepositWithdraw
     {
-        public CurrentAccount(string id, string name, double balance,TypeAccount accounttype) : base(id, name, balance,accounttype)
+        private readonly string _accountNo;
+        private readonly string _name;
+        private double _balance;
+
+        public CurrentAccount(string accountNo, string name, double balance)
         {
+            _accountNo = accountNo;
+            _name = name;
+            _balance = balance;
         }
+
+        public string AccountNumber { get { return _accountNo; } }
+        public string Name { get { return _name; } }
+        public double Balance { get { return _balance; } }
 
         public void Deposit(double amount)
         {
@@ -30,12 +41,11 @@ namespace AccountClassLibrary.Models
 
         }
 
-        public void PrintBalanceSheet(Account account)
+        public void PrintBalanceSheet()
         {
-            Console.WriteLine($"Account Number: {account.Id}" +
-            $", Account Name: {account.Name}" +
-            $", Balance: {account.Balance}" +
-            $", Account Type: {account.AccountType.ToString()}");
+            Console.WriteLine($"Account Number: {AccountNumber}" +
+            $", Account Name: {Name}" +
+            $", Balance: {Balance}");
         }
     }
 }
