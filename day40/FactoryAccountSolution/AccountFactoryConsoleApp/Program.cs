@@ -10,14 +10,20 @@ namespace AccountFactoryConsoleApp
             var accountFactory = new AccountFactory();
             
             //Saving account 
-            IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING);
+            //IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING);
+            //sAccount.Deposit(500);
+            //sAccount.PrintBalanceSheet();
+
+            IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING,);
             sAccount.Deposit(500);
             sAccount.PrintBalanceSheet();
 
+
+
             //Current account
-            IAccountDepositWithdraw cAccount = accountFactory.AccountCreation(TypeAccount.CURRENT);
-            cAccount.Deposit(1000);
-            cAccount.PrintBalanceSheet();
+            //IAccountDepositWithdraw cAccount = accountFactory.AccountCreation(TypeAccount.CURRENT);
+            //cAccount.Deposit(1000);
+            //cAccount.PrintBalanceSheet();
 
 
         }

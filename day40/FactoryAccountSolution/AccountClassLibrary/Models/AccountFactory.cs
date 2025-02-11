@@ -9,19 +9,35 @@ namespace AccountClassLibrary.Models
 {
     public class AccountFactory
     {
-        public IAccountDepositWithdraw AccountCreation(TypeAccount accountType)
+        //public IAccountDepositWithdraw AccountCreation(TypeAccount accountType)
+        //{
+        //    if (accountType == TypeAccount.SAVING)
+
+        //        return new SavingAccount("1001", "Markonda", 50000);
+
+
+        //    else if (accountType == TypeAccount.CURRENT)
+
+        //        return new CurrentAccount("1002", "Kannan", 100000);
+        //    else
+
+        //        return new Account("5555", "Rama", 500);
+
+        //}
+
+        public IAccountDepositWithdraw AccountCreation(TypeAccount accountType,Account account)
         {
             if (accountType == TypeAccount.SAVING)
 
-                return new SavingAccount("1001", "Markonda", 50000);
+                return new SavingAccount(account.AccountNumber,account.Name,account.Balance);
 
 
             else if (accountType == TypeAccount.CURRENT)
 
-                return new CurrentAccount("1002", "Kannan", 100000);
+                return new CurrentAccount(account.AccountNumber, account.Name, account.Balance);
             else
 
-                return new Account("5555", "Rama", 500);
+                return new Account(account.AccountNumber, account.Name, account.Balance);
 
         }
     }

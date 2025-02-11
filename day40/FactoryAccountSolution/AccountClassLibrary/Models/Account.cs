@@ -24,12 +24,12 @@ namespace AccountClassLibrary.Models
         public string Name { get { return _name; } }
         public double Balance { get { return _balance; } }
 
-        public void Deposit(double amount)
+        public virtual void Deposit(double amount)
         {
             _balance += amount;
         }
 
-        public void Widthdraw(double amount)
+        public virtual void Widthdraw(double amount)
         {
             if (_balance - amount < 500)
             {
