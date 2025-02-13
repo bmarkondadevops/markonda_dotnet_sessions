@@ -7,14 +7,39 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 namespace CRUDLibrary
 {
-    
+
     public class CRUDOperation : IProduct
     {
         private static string connectionString = "Data Source=CHLAPDMARKOND\\SQLEXPRESS;Initial Catalog=rrd_db1;Integrated Security=True;Trust Server Certificate=True";
         private readonly object productId;
 
-        public void DeleteProduct(Products product)
+
+
+        public void InsertProduct(Products product)
         {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "INSERT INTO Products (ProductName, Price) VALUES (@ProductName, @Price)";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                command.Parameters.AddWithValue("@Price", product.Price);
+
+                command.ExecuteNonQuery();
+
+                Console.WriteLine("One product inserted successfully");
+
+
+            }
+        }
+        public void DeleteProduct()
+
+        {
+            Console.WriteLine("Enter productID");
+            int productId = System.Convert.ToInt32(Console.ReadLine());
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -24,14 +49,17 @@ namespace CRUDLibrary
 
                 command.Parameters.AddWithValue("@ProductID", productId);
 
-                command.ExecuteNonQuery();
+                int b = command.ExecuteNonQuery();
 
-                Console.WriteLine("Given product ID deleted successfully");
+                if (b > 0)
+                    Console.WriteLine($"Given productID:{productId} deleted successfully");
+
+                else
+                    Console.WriteLine($"Given productId :{productId} not exist in the Products");
 
             }
         }
 
-       
 
         public List<Products> GetAllProducts()
         {
@@ -62,32 +90,8 @@ namespace CRUDLibrary
             }
 
             return products;
+
         }
-
-           
-
-        public void InsertProduct(Products product)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "INSERT INTO Products (ProductName, Price) VALUES (@ProductName, @Price)";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                command.Parameters.AddWithValue("@ProductName", product.ProductName);
-                command.Parameters.AddWithValue("@Price", product.Price);
-
-                command.ExecuteNonQuery();
-
-                Console.WriteLine("One product inserted successfully");
-
-
-            }
-        }
-
-        
-
         public void UpdateProduct(Products product)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -105,6 +109,11 @@ namespace CRUDLibrary
 
                 Console.WriteLine("product updated successfully");
             }
+        }
+
+        public void UpdateProduct(int product)
+        {
+            throw new NotImplementedException();
         }
     }
 }

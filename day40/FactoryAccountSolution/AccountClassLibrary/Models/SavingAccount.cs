@@ -11,13 +11,10 @@ namespace AccountClassLibrary.Models
 
         //private readonly string _accountNo;
         //private readonly string _name;
-        private double _balance;
+        //private double _balance;
 
-        public SavingAccount(string accountNo, string name, double balance):base(accountNo,name,balance)
-        {
+        public SavingAccount(string accountNo, string name, double balance) : base(accountNo, name, balance) { }
             
-        }
-        
 
         //public string AccountNumber { get { return _accountNo; } }
         //public string Name { get { return _name; } }

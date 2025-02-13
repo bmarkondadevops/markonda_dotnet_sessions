@@ -1,0 +1,40 @@
+﻿
+
+select * from product
+
+drop table product
+
+select * from products
+
+
+CREATE TABLE Users (
+    UserId INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(50),
+    Password NVARCHAR(50)
+);
+
+
+INSERT INTO Users (Username, Password) VALUES ('user1', 'password1');
+INSERT INTO Users (Username, Password) VALUES ('user2', 'password2');
+
+select * from Users
+
+select * from users where username='user1' or 0<11
+
+
+CREATE TABLE Todos (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Description NVARCHAR(MAX) NOT NULL,
+    Priority INT NOT NULL CHECK (Priority BETWEEN 0 AND 2)
+);
+
+
+
+CREATE TABLE ToDoItems (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Title NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(MAX),
+    IsCompleted BIT DEFAULT 0
+);
+
+select *from ToDoItems

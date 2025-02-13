@@ -10,8 +10,10 @@ namespace AccountClassLibrary.Models
     {
         private readonly string _accountNo;
         private readonly string _name;
-        private double _balance;
+        protected double _balance;
 
+
+        public Account() { }
         public Account(string accountNo, string name, double balance)
         {
             _accountNo = accountNo;

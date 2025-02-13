@@ -1,4 +1,5 @@
 ﻿using System.Security.Principal;
+using System.Xml.Linq;
 using AccountClassLibrary.Models;
 
 namespace AccountFactoryConsoleApp
@@ -8,15 +9,16 @@ namespace AccountFactoryConsoleApp
         static void Main(string[] args)
         {
             var accountFactory = new AccountFactory();
-            
-            //Saving account 
-            //IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING);
-            //sAccount.Deposit(500);
-            //sAccount.PrintBalanceSheet();
 
-            IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING,);
-            sAccount.Deposit(500);
-            sAccount.PrintBalanceSheet();
+
+
+            //Saving account 
+            //IAccountDepositWithdraw sAccount = accountFactory.AccountCreation(TypeAccount.SAVING, Account ac);
+            SavingAccount ac = accountFactory.AccountCreation(TypeAccount.SAVING, Account account);
+            ac.Deposit(500);
+            ac.PrintBalanceSheet();
+
+           
 
 
 

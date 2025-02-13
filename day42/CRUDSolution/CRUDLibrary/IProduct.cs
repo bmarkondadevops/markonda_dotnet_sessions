@@ -9,8 +9,8 @@ namespace CRUDLibrary
     public interface IProduct
     {
         public void InsertProduct(Products product);
-        public void UpdateProduct(Products product);
-        public void DeleteProduct(Products product);
+        public void UpdateProduct(int product);
+        public void DeleteProduct();
         public List<Products> GetAllProducts();
 
     }

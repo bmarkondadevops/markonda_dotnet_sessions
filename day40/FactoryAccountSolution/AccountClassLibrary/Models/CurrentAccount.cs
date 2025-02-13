@@ -10,7 +10,7 @@ namespace AccountClassLibrary.Models
     {
         //private readonly string _accountNo;
         //private readonly string _name;
-        private double _balance;
+        //private double _balance;
 
         public CurrentAccount(string accountNo, string name, double balance) : base(accountNo, name, balance)
         {
