@@ -14,14 +14,16 @@ namespace BankClassLibrary.Models
         public void CreateAccount()
         {
             Console.Write("Enter account number: ");
-            string accountNumber = Console.ReadLine();
-            Console.Write("accountNumber:" + accountNumber);
+            string accountNumber = Console.ReadLine();           
 
             Console.Write("Enter account holder name: ");
             string accountHolderName = Console.ReadLine();
-            Console.Write("accountHolderName:" + accountHolderName);
 
-           using (var connection = _connectionProvider.GetConnection())
+            Console.Write("Enter initial amount: ");
+            decimal initialAmount =System.Convert.ToDecimal(Console.ReadLine());
+
+
+            using (var connection = _connectionProvider.GetConnection())
             {
                 connection.Open();
 
@@ -30,7 +32,7 @@ namespace BankClassLibrary.Models
                 {
                     command.Parameters.AddWithValue("@AccountNumber", accountNumber);
                     command.Parameters.AddWithValue("@AccountHolderName", accountHolderName);
-                    command.Parameters.AddWithValue("@Balance", 0.00m);
+                    command.Parameters.AddWithValue("@Balance", initialAmount);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -47,7 +49,42 @@ namespace BankClassLibrary.Models
 
         public void DepositMoney()
         {
-            throw new NotImplementedException();
+            Console.Write("Enter account ID: ");
+            int accountId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter amount to deposit: ");
+            decimal amount = Convert.ToDecimal(Console.ReadLine());
+           
+
+            using (SqlConnection connection = new SqlConnection("_connectionProvider"))
+            {
+                connection.Open();
+
+                // Check if account exists
+                string queryCheckAccount = "SELECT * FROM BankAccount WHERE AccountID = @AccountID";
+                decimal amtDeposit = "update bankaccount set balance=2000 where accountid = accountid";
+                using (SqlCommand commandCheckAccount = new SqlCommand(queryCheckAccount, connection))
+                {
+                    commandCheckAccount.Parameters.AddWithValue("@AccountID", accountId);
+
+                    using (SqlDataReader reader = commandCheckAccount.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            Console.WriteLine("Account not found.");
+                            return;
+                        }
+                        else {
+                            
+                            var cmd = new SqlCommand("update BankAccount set Balance=2000 where AccountID = accountId", con);
+                            cmd.Parameters.AddWithValue("@Description", todo.Description);
+                            cmd.ExecuteNonQuery();                           
+
+                        }
+                    }
+
+                }
+            }
         }
 
         public void ViewAccountDetails()

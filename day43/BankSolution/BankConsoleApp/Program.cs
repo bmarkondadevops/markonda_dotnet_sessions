@@ -12,7 +12,6 @@ namespace BankConsoleApp
             SqlServerBankRepository bankRepository = new SqlServerBankRepository(dbConnectionProvider);
 
 
-
             Console.WriteLine("Bank Application");
 
             while (true)
