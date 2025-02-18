@@ -23,8 +23,6 @@ namespace ManagementConsoleApp
             //seniorManager.ShowDetails();
 
 
-
-
         }
     }
 }
