@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePatternMenuHierarchyApp", "CompositePatternMenuHierarchyApp.csproj", "{FB1A07D9-BB41-4050-AC00-8B4EDC2E0681}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB1A07D9-BB41-4050-AC00-8B4EDC2E0681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1A07D9-BB41-4050-AC00-8B4EDC2E0681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1A07D9-BB41-4050-AC00-8B4EDC2E0681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1A07D9-BB41-4050-AC00-8B4EDC2E0681}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E64CFF29-5B7A-4326-AE7B-CC7FAB57465B}
+	EndGlobalSection
+EndGlobal

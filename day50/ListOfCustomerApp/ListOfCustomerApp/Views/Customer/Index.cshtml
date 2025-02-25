@@ -1,0 +1,33 @@
+﻿@model List<ListOfCustomerApp.Model.Customer>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers List</title>
+</head>
+<body>
+    <h2>RRD Customers List</h2>
+
+    @foreach (var customer in Model)
+    {
+        <div>
+            <h3>Customer ID: @customer.Id</h3>
+            <p>Name: @customer.Name</p>
+
+            <h4>Addresses:</h4>
+            <ul>
+                @foreach (var address in customer.Addresses)
+                {
+                    <li>
+                        @address.Street, @address.City, @address.State - @address.ZipCode
+                    </li>
+                }
+            </ul>
+
+            <hr />
+        </div>
+    }
+</body>
+</html>

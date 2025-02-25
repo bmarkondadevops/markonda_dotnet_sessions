@@ -1,0 +1,137 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+
+.header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+    .header h1 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    .header .tagline {
+        font-size: 20px;
+        font-style: italic;
+        margin-top: 10px;
+    }
+
+
+.hero {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 50px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+    .hero h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+.hero-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+    border: 3px solid #007bff; 
+}
+
+.content {
+    margin-top: 30px;
+    text-align: center;
+}
+
+    .content h3 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .content p {
+        font-size: 16px;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        color: #555;
+    }
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+
+.button {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+    .button:hover {
+        background-color: #218838;
+    }
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .content h3 {
+        font-size: 22px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+}
