@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <link rel="stylesheet" href="~/CSS/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="login">
+    <form action="/customer/Register" method="post" id="registerForm" >
+        <input type="text" name="firstName" id="firstName" placeholder="Enter First Name"/> 
+        <span id="usernameError1" style="color: red; display: none;">Invalid username or Don't leave Blank</span>
+        <br />
+        <br />
+        <input type="text" name="lastName" id="lastName" placeholder="Enter Last Name"/>
+        <span id="usernameError2" style="color: red; display: none;">Invalid username or Don't leave Blank'</span>
+        <br />
+        <br />
+        <input type="submit" value="Register" />
+
+    </form>
+    
+        @if (ViewBag.Message == null)
+        {
+            <h1>Enter the Details.../This is Get Request</h1>
+        }
+        else
+        {
+            <h1>@ViewBag.Message</h1>
+            <p>This is post request</p>
+        }
+    </div>
+
+    <script src="/js/Validation.js"></script>
+</body>
+</html>

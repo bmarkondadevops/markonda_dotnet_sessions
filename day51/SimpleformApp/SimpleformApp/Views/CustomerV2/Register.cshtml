@@ -1,0 +1,14 @@
+﻿@using SimpleformApp.DTOs
+@model RegiserationDTO
+
+@using(Html.BeginForm("Register","CustomerV2",FormMethod.Post))
+{
+
+    @Html.TextBoxFor(m=>m.CustomerFirstName)
+    <br/>
+   @Html.TextBoxFor(m => m.LastName)
+   <br/>
+
+  <input type="submit" value="Register"/>
+}
+

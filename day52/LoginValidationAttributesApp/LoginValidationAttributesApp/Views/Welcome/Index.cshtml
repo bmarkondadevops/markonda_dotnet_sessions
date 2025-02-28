@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body class="container">
+
+    @if (TempData["LoggedInUser"] == null)
+    {
+        <h1 class="display-1">WElcome back Mr.Anonymous</h1>
+    }
+    else
+    {
+        <h1 class="display-1">WElcome back @TempData["LoggedInUser"]</h1>
+        
+    }
+
+   
+    </body>
+    </html>

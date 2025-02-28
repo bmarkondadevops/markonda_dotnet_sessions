@@ -1,0 +1,48 @@
+﻿@model FormValidationWithJQueryApp.DTOs.RegiserationDTO
+
+<form action="/customer/Register" method="post" id="registrationForm">
+    <input type="text" name="firstName" placeholder="Enter First Name" required />
+    <br />
+    <input type="text" name="lastName" placeholder="Enter Last Name" required />
+    <br />
+    <input type="submit" value="Register ME!" />
+</form>
+
+<div>
+    <h1>@ViewBag.Message</h1>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#registrationForm").validate({
+            rules: {
+                firstName: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 15
+                },
+                lastName: {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 10
+                }
+            },
+            messages: {
+                firstName: {
+                    required: "First name is required",
+                    minlength: "First name must be at least 2 characters",
+                    maxlength: "First name cannot exceed 15 characters"
+                },
+                lastName: {
+                    required: "Last name is required",
+                    minlength: "Last name must be at least 2 characters",
+                    maxlength: "Last name cannot exceed 10 characters"
+                }
+            }
+        });
+    });
+</script>

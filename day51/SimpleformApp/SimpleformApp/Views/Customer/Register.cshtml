@@ -1,0 +1,29 @@
+﻿
+<!--html helpers-->
+
+<form action="/customer/Register" method="post">
+
+
+    <input type="text" name="firstName" placeholder="enter firstname" required />
+    <br/>
+    <input type="text" name="lastName" placeholder="enter lastName" required />
+    <br/>
+    <input type="submit" value="Register ME!" />
+</form>
+
+<div>
+    <h1>@ViewBag.Message</h1>
+
+    @* @if (ViewBag.Message == null)
+    {
+        <h1>Get request</h1>
+    }
+    else
+    {
+        
+      <h1>POst request</h1>
+    } *@
+
+</div>
+
+
