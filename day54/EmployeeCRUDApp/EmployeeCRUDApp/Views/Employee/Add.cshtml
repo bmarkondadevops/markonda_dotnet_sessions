@@ -1,0 +1,23 @@
+﻿@using EmployeeCRUDApp.DTOs
+@model EmployeeAddDto
+
+
+<h1>@Model.HeaderTitle</h1>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert-success">@Model.Message</div>
+}
+
+@using (Html.BeginForm())
+{
+     <p>
+         Name is : @Html.TextBoxFor(m=>m.Name)
+     </p>
+    <p>
+        Salary is : @Html.TextBoxFor(m => m.Salary)
+    </p>
+
+    <input type="submit" value="Add"/>
+    <h1>@Model.Message</h1>
+}
