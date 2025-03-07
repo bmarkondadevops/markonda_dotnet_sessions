@@ -3,7 +3,8 @@
 
 <h1>@Model.HeaderTitle</h1>
 
-<h2>Current Customer strength is @Model.Count</h2>
+<h2>Current Customer Strength Count: @Model.Count</h2>
+
 <p>
     @Html.ActionLink("Add Customer", "Add", "Customer", null, new { @class = "btn btn-primary" })
 </p>
@@ -14,6 +15,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Balance</th>
+            <th>Email</th>
             <th>Edit</th>
             <th>delete</th>
         </tr>
@@ -25,6 +27,7 @@
             <td>@cid.Id</td>
             <td>@cid.Name</td>
             <td>@cid.Balance</td>
+            <td>@cid.Email</td>
             <td>@Html.ActionLink("Edit", "Edit", "Customer", new { id = cid.Id })</td>
             <td>@Html.ActionLink("X", "Remove", "Customer", new { id = cid.Id }, new { onclick = "return fnAreYouSure()" })</td>
         </tr>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.ChildTitle = "ContactUs";
+   
+}
+
+<section>
+    This is Index page of ContactUs controller
+
+    <button onclick="fnLoadTimeSTamp()">Load PartialView</button>
+</section>
+
+<img id="imgLoading"
+     src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47seuqa5btc71x9ti62d84ov2q09fj2rnlr6mybgpa&rid=giphy.gif&ct=g" />
+
+<script>
+
+    $("#imgLoading").hide();
+
+    async function  fnLoadTimeSTamp() {
+        $("#imgLoading").show();
+
+        
+
+      await  $.get("/contactus/GetTimeStampNonBlocking", function (response) {
+            $("#timeStampDiv").html(response)
+            console.log("response from server")
+            $("#imgLoading").hide();
+        });
+
+        console.log("end of function")
+    }
+</script>
+
+<div id="timeStampDiv">
+
+</div>

@@ -11,6 +11,7 @@ namespace Bankpplication.Services
         void Remove(int id);
         void Update(AccountMaster customer);
         public IEnumerable<AccountMaster> Get();
+        public void Login(AccountMaster am);
 
     }
 }

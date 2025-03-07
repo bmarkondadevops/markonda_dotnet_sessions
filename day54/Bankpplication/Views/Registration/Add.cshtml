@@ -1,0 +1,86 @@
+﻿@*@using Bankpplication.DTOs *@
+@model AccountMasterAddDto
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<h1>@Model.HeaderTitle</h1>
+
+
+<form asp-action="Add" asp-controller="Registration"> 
+
+	<p>
+		Name: <input asp-for="Name" />
+	</p>
+	<p>
+		Balance:<input asp-for="Balance" />
+	</p>
+	<p>
+		Email: <input asp-for="Email" />
+	</p>
+	<p>
+		Password:<input asp-for="Password" />
+	</p>
+
+	<input type="submit" value="Add" />
+
+</form>
+
+@*
+<form id="registrationForm">
+	<table>
+		<tr>
+			<td> <label for="name">Name:</label></td>
+			<td><input type="name" id="name" name="name"></td>
+		</tr>
+		<tr>
+			<td><label for="balance">Balance:</label></td>
+			<td><input type="balance" id="balance" name="balance"></td>
+		</tr>
+
+		<tr>
+			<td><label for="email">Email:</label></td>
+			<td><input type="email" id="email" name="email"></td>
+		</tr>
+		<tr>
+			<td><label for="password">Password:</label></td>
+			<td><input type="password" id="password" name="password"></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				</foot><button type="submit">Submit</button>
+			</td>
+			
+		</tr>
+		<div id="error-message"></div>
+
+	</table>
+</form>
+
+*@
+
+@*
+
+@using (Html.BeginForm())
+{
+    <p>
+        Name    : @Html.TextBoxFor(m => m.Name)
+    </p>
+    <p>
+        Balance : @Html.TextBoxFor(m => m.Balance)
+    </p>
+    <p>
+        Email   : @Html.TextBoxFor(m => m.Email)
+    </p>
+    <p>
+        Password: @Html.PasswordFor(m => m.Password)
+    </p>
+
+    <input type="submit" value="Add" />
+
+}
+
+*@

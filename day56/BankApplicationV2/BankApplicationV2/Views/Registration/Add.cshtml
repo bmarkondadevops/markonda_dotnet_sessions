@@ -1,0 +1,94 @@
+﻿@*@using BankApplicationV2.DTOs *@
+@model AccountMasterAddDto
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<h4 class="centered-header">@Model.HeaderTitle</h4>
+
+<form asp-action="Add" asp-controller="Registration" class="centered-form">
+    
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td>Balance</td>
+            <td><input asp-for="Balance" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input asp-for="Email" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input asp-for="Password" type="password" /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" /></td>
+        </tr>
+    </table>
+</form>
+
+
+
+<style>
+
+    .centered-form {
+        margin: 0 auto;
+        width: 400px; /* Adjust the width as needed */
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .centered-form table {
+        width: 100%;
+    }
+
+    .centered-form td {
+        padding: 10px;
+    }
+
+    .centered-form td:first-child {
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .centered-form input[type="text"],
+    .centered-form input[type="email"],
+    .centered-form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .centered-form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .centered-form input[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+
+    .centered-header {
+        text-align: center;
+        color: #008000; /* Green color */
+    }
+
+
+</style>

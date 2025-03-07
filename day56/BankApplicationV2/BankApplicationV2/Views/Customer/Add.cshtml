@@ -1,0 +1,25 @@
+﻿@using BankApplicationV2.DTOs
+@model AccountMasterAddDto
+
+
+<h1>@Model.HeaderTitle</h1>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Name : @Html.TextBoxFor(m => m.Name)
+    </p>
+    <p>
+        Balance : @Html.TextBoxFor(m => m.Balance)
+    </p>
+    <p>
+        Email : @Html.TextBoxFor(m => m.Email)
+    </p>
+    <p>
+        Password : @Html.PasswordFor(m => m.Password)
+    </p>
+
+    <input type="submit" value="Add" />
+
+}

@@ -1,0 +1,73 @@
+﻿
+@model AccountTransactionAllDTO
+
+
+
+<h4>@Model.HeaderTitle</h4>
+
+<h4>Current Customer Strength Count: @Model.Count</h4>
+
+
+<p style="text-align: center; font-size: 16px; margin-bottom: 20px;">
+    @DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
+</p>
+
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Id</th>           
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Name</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Amount</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">TransactionType</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Date</th>
+
+        </tr>
+    </thead>
+
+    @foreach (var cid in Model.AccountTransactions)
+    {
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Id</td>       
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Name</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Amount</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Type</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Date</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">
+               
+         </tr>
+    }
+</table>
+
+
+
+
+<style>
+    .date-display {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+@*
+<p class="date-display">@DateTime.Now.ToString("yyyy-MM-dd")</p>
+
+<table>
+    <!-- Your table content here -->
+</table>*@
+
+
+

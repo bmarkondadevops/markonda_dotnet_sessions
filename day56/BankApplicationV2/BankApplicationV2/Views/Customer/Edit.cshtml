@@ -1,0 +1,25 @@
+﻿@using BankApplicationV2.DTOs
+@model AccountMasterEditDto
+
+@using (Html.BeginForm())
+{
+
+    <p>
+       AccountId @Html.DisplayFor(m => m.Id)
+    </p>
+
+    <p>
+        Name     @Html.TextBoxFor(m => m.Name)
+    </p>
+
+    <p>
+        Balance  @Html.TextBoxFor(m => m.Balance)
+    </p>
+    @*
+    <p>
+        Email @Html.TextBoxFor(m => m.Email)
+    </p> *@
+
+    <input type="Submit" value="Update" />
+
+}

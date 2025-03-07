@@ -1,0 +1,35 @@
+﻿@model LoginDTO
+
+<h1>@Model.HeaderTitle</h1>
+
+<form asp-action="Login" asp-controller="Login">
+    <p>
+        Username: <input asp-for="Name" />
+    </p>
+    <p>
+        Password:<input asp-for="Password"/>
+    </p>
+    <input type="submit" value="Login" />
+</form>
+
+@*
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <p>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </p>
+
+    <input type="submit" value="Login" />
+}
+*@

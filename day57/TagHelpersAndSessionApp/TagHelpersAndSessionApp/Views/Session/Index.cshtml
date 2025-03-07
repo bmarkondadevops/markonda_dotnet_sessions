@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    const string COUNTER = "counter";
+}
+
+<h1>Session id  @Context.Session.Id</h1>
+
+<h1>Old value of counter :@(Context.Session.GetInt32(COUNTER)-1) </h1>
+<h1>new value of counter :@Context.Session.GetInt32(COUNTER) </h1>

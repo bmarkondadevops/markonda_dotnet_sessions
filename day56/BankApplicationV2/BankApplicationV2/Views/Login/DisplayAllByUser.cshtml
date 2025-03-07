@@ -1,0 +1,83 @@
+﻿@using BankApplicationV2.DTOs
+@model AccountMasterDisplayAllDto
+
+<h1>@Model.HeaderTitle</h1>
+
+<h2>Current Customer Strength Count: @Model.Count</h2>
+
+<p>
+    <a asp-action="DisplayAllByUser" asp-controller="Login" class="btn btn-primary">Add Customer</a>
+</p>
+
+<p style="text-align: center; font-size: 16px; margin-bottom: 20px;">
+    @DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")
+</p>
+
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Id</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Name</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Balance</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Email</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Edit</th>
+            <th style="border: 1px solid #ddd; padding: 10px; background-color: #f2f2f2;">Delete</th>
+        </tr>
+    </thead>
+
+    @foreach (var cid in Model.AccountMaster)
+    {
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Id</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Name</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Balance</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Email</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">
+                <form asp-action="Edit" asp-controller="Customer" asp-route-id="@cid.Id" method="get">
+                    <input type="submit" value="Edit" />
+                </form>
+            </td>
+            <td style="border: 1px solid #ddd; padding: 10px;">
+                <form asp-action="Remove" asp-controller="Customer" asp-route-id="@cid.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="submit" value="X" onclick="return fnAreYouSure()" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    function fnAreYouSure() {
+        return confirm('Are you sure to delete this record?');
+    }
+</script>
+
+
+<style>
+    .date-display {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+@*
+<p class="date-display">@DateTime.Now.ToString("yyyy-MM-dd")</p>
+
+<table>
+    <!-- Your table content here -->
+</table>*@

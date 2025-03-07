@@ -1,0 +1,102 @@
+﻿@model AccountTransactionDTO
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<form asp-action="Create" asp-controller="Transaction" class="centered-form">
+
+    <table>
+        <tr>
+            <td>AccountMasterId</td>
+            <td><input asp-for=@Model.AccountMasterId /></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input asp-for="Name" /></td>
+        </tr>
+        <tr>
+            <td>Amount</td>
+            <td><input asp-for="Amount" /></td>
+        </tr>
+        <tr>
+            <td>TransactionType</td>
+            <td>
+                <select asp-for="TransactionType" class="form-control">
+                    <option value="Credit">Credit</option>
+                    <option value="Debit">Debit</option>
+                </select>
+                <span asp-validation-for="TransactionType" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input asp-for="Date" type="date" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" /></td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+<style>
+
+    .centered-form {
+        margin: 0 auto;
+        width: 400px; /* Adjust the width as needed */
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .centered-form table {
+            width: 100%;
+        }
+
+        .centered-form td {
+            padding: 10px;
+        }
+
+            .centered-form td:first-child {
+                text-align: right;
+                font-weight: bold;
+            }
+
+        .centered-form input[type="text"],
+        .centered-form input[type="email"],
+        .centered-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .centered-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .centered-form input[type="submit"]:hover {
+                background-color: #3e8e41;
+            }
+
+
+    .centered-header {
+        text-align: center;
+        color: #008000; /* Green color */
+    }
+
+</style>
