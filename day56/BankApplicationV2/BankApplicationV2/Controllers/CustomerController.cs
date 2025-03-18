@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BankApplicationV2.Domain;
 using BankApplicationV2.DTOs;
@@ -26,14 +27,7 @@ namespace BankApplicationV2.Controllers
             return View(dto);
         }
 
-        public IActionResult DisplayAllByUser()
-        {
-            var dto = new LoginDTO();
-            //dto.Count = _customerService.HeadCount();
-            //dto.HeaderTitle = "Display Customer Information";
-            //dto.AccountMaster = _customerService.GetByUser(AccountMasterDisplayAllDto);
-            return View(dto);
-        }
+       
 
         /*
         public IActionResult Add()
@@ -110,6 +104,12 @@ namespace BankApplicationV2.Controllers
         }
 
         public IActionResult UpdateSuccess()
+        {
+
+            return View();
+        }
+
+        public IActionResult Index()
         {
 
             return View();

@@ -1,5 +1,4 @@
-﻿﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,13 +25,26 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ms-auto">                    
-                    <li class="nav-item">
-                        <a class="nav-link" @Html.ActionLink("Login", "Login", "Login", null, new { @class = "btn btn-primary" }))"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" @Html.ActionLink("Registration", "Add", "Registration", null, new { @class = "btn btn-primary" })"></a>
-                    </li>                    
+                <ul class="navbar-nav ms-auto">
+                    @if (Context.Session.TryGetValue("LoggedInUserEmail", out byte[] emailBytes) && emailBytes != null)
+                    {
+                        string email = System.Text.Encoding.UTF8.GetString(emailBytes);
+                        if (!string.IsNullOrEmpty(email))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Logout", "Login")">Logout</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login", "Login")">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Add", "Registration")">Registration</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -44,7 +56,7 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="#">
-                        @*<img src="~/images/Corporate-Finance.jpg" alt="MyImage" width="1200" height="1000"> *@
+                @*<img src="~/images/Corporate-Finance.jpg" alt="MyImage" width="1200" height="1000"> *@
             </a>
         </div>
     </nav>
@@ -53,7 +65,7 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p>&copy; @DateTime.Now.Year - MyApp</p>
+        <p>&copy; All right are reversed. @DateTime.Now.Year - MyApp</p>
     </footer>
 
     <!-- Bootstrap JS -->

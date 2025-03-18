@@ -1,7 +1,103 @@
-﻿@model LoginDTO
+﻿@model BankApplicationV2.DTOs.LoginDTO
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="text-center text-primary">@ViewBag.Title</h2>
+            
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <table class="table table-bordered table-hover login-table">
+                    <tr>
+                        <td colspan="2" class="text-center text-danger">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-right bg-light">@Html.LabelFor(model => model.Email)</td>
+                        <td>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-right bg-light">@Html.LabelFor(model => model.Password)</td>
+                        <td>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <input type="submit" value="Login" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+<style>
+    /* Add this to your site.css or within a <style> tag */
+
+    .login-table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+        .login-table th, .login-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .login-table th {
+            text-align: right;
+            background-color: #f9f9f9; /* Light gray background for labels */
+        }
+
+        .login-table td {
+            text-align: left;
+        }
+
+        .login-table .text-center {
+            text-align: center;
+        }
+
+        .login-table .text-danger {
+            color: red; /* Red color for validation errors */
+        }
+
+        .login-table .bg-light {
+            background-color: #f9f9f9; /* Light gray background for label cells */
+        }
+
+        .login-table .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff; /* Blue color for submit button */
+            border-color: #007bff; /* Blue border for submit button */
+        }
+
+</style>
+
 
 @*
-<h4 class="centered-header">@Model.HeaderTitle</h4>*@
+
+@model LoginDTO
+
+
+<h4 class="centered-header">@Model.HeaderTitle</h4>
 
 <div class="centered-form">
     <form asp-action="Login" asp-controller="Login">
@@ -74,3 +170,5 @@
         color: #008000; /* Green color */
     }
 </style>
+
+*@

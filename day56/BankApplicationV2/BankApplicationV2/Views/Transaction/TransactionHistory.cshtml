@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BankApplicationV2.DTOs.AccountTransactionDTO>
+
+@{
+    ViewBag.Title = "Transaction History";
+}
+
+<h2>Transaction History</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Account Master Id</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Transaction Type</th>
+        <th>Date</th>       
+    </tr>
+
+    @{
+        decimal runningBalance = 0;
+    }
+
+    @foreach (var transaction in Model)
+    {
+        runningBalance += transaction.Amount;
+
+        <tr>
+            <td>@transaction.Id</td>
+            <td>@transaction.AccountMasterId</td>
+            <td>@transaction.Name</td>
+            <td>@transaction.Amount.ToString("C")</td>
+            <td>@transaction.TransactionType</td>
+            <td>@transaction.Date.ToString("yyyy-MM-dd HH:mm:ss")</td>           
+        </tr>
+    }
+</table>
+
+<p>
+    <a href="@Url.Action("LoginSuccess", "Login")" class="btn btn-secondary">Back to Login</a>
+</p>

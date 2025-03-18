@@ -120,25 +120,75 @@ namespace BankApplicationV2.Services
             }
         }
 
-        public void login(AccountMaster accountMaster)
+        public AccountMaster AuthenticateUser(string email, string password)
         {
             using (var connection = _connectionProvider.GetConnection())
             {
                 connection.Open();
-                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Name = @Name and Password=@Password", connection);
-                command.Parameters.AddWithValue("@Name", accountMaster.Name);
-                command.Parameters.AddWithValue("@Password", accountMaster.Password);
+                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Email = @Email AND Password = @Password", connection);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password);
 
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return new AccountMaster
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            Balance = Convert.ToDecimal(reader["Balance"]),
+                            Email = reader["Email"].ToString(),
+                            Password = reader["Password"].ToString()
+                        };
+                    }
+                }
             }
+            return null;
+        }
+
+        public AccountMaster GetAccountByEmail(string email)
+        {
+            using (var connection = _connectionProvider.GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Email = @Email", connection);
+                command.Parameters.AddWithValue("@Email", email);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return new AccountMaster
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            Balance = Convert.ToDecimal(reader["Balance"]),
+                            Email = reader["Email"].ToString(),
+                            Password = reader["Password"].ToString()
+                        };
+                    }
+                }
+            }
+            return null;
         }
 
 
 
-        /* ==================================================*/
+
+
+
+
+
+
+
+
+
+        /*
         //Account Transaction 
-        public IEnumerable<AccountTransactionAllDTO> GetTransactions(int accountId)
+        public IEnumerable<AccountTransaction> GetTransactions(int accountId)
         {
-            List<AccountTransactionAllDTO> transactions = new List<AccountTransactionAllDTO>();
+            List<AccountTransaction> transactions = new List<AccountTransaction>();
 
             using (var connection = _connectionProvider.GetConnection())
             {
@@ -150,21 +200,21 @@ namespace BankApplicationV2.Services
 
                 while (reader.Read())
                 {
-                    transactions.Add(new AccountTransactionAllDTO
+                    transactions.Add(new AccountTransaction
                     {
                         Id = Convert.ToInt32(reader["Id"]),
                         AccountMasterId = Convert.ToInt32(reader["AccountMasterId"]),
                         Name = reader["Name"].ToString(),
                         Amount = Convert.ToDecimal(reader["Amount"]),
-                        TransactionType = reader["TransactionType"].ToString(),
-                        Date = Convert.ToDateTime(reader["Date"]) // Convert date from database
+                        Type = reader["TransactionType"].ToString(),
+                        Date = reader["Date"].ToString() // Convert date from database
                     });
                 }
                 return transactions;
-            }          
-            
-        }
-        
+            }
+
+        }  */
+        /*
         public void CreateTransaction(AccountTransactionDTO transaction)
         {
             using (var connection = _connectionProvider.GetConnection())
@@ -181,8 +231,9 @@ namespace BankApplicationV2.Services
 
                 command.ExecuteNonQuery();
             }
-        }
+        } */
 
+        /*
         public void UpdateTransaction(AccountTransactionDTO transaction)
         {
             using (var connection = _connectionProvider.GetConnection())
@@ -202,8 +253,9 @@ namespace BankApplicationV2.Services
 
                 command.ExecuteNonQuery();
             }
-        }
+        } */
 
+        /*
         private void UpdateAccountBalance(int accountId, decimal amount, string transactionType)
         {
             using (var connection = _connectionProvider.GetConnection())
@@ -230,7 +282,8 @@ namespace BankApplicationV2.Services
                 command.ExecuteNonQuery();
             }
         }
-
+         */
+        /*
         private void ReverseTransactionEffect(int transactionId)
         {
             using (var connection = _connectionProvider.GetConnection())
@@ -260,5 +313,82 @@ namespace BankApplicationV2.Services
                 }
             }
         }
+        */
+
+        /*
+        public IEnumerable<AccountMaster> login(LoginDTO dto)
+        {
+            using (var connection = _connectionProvider.GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Name = @Name and Password=@Password", connection);
+                command.Parameters.AddWithValue("@Name", dto.Name);
+                command.Parameters.AddWithValue("@Password", dto.Password);
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return new AccountMaster
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Balance = reader.GetDecimal(2)
+                        };
+                    }
+
+                }
+            }
+        } */
+
+        /*
+
+        public IEnumerable<AccountMaster> GetAccountByName(string name)
+        {
+            using (var connection = _connectionProvider.GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Name = @Name", connection);
+                command.Parameters.AddWithValue("@Name", name);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return new AccountMaster
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Balance = reader.GetDecimal(2)
+                        };
+                    }
+                }
+            }
+        }
+
+        public IEnumerable<AccountMaster> login(string username, string password)
+        {
+            using (var connection = _connectionProvider.GetConnection())
+            {
+                connection.Open();
+                var command = new SqlCommand("SELECT * FROM AccountMaster WHERE Name = @Name AND Password = @Password", connection);
+                command.Parameters.AddWithValue("@Name", username);
+                command.Parameters.AddWithValue("@Password", password);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return new AccountMaster
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Balance = reader.GetDecimal(2)
+                        };
+                    }
+                }
+            }
+        }
+        */
     }
 }
+

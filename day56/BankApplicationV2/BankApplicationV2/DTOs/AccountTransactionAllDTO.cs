@@ -9,7 +9,7 @@ namespace BankApplicationV2.DTOs
 
         public int Count { get; set; }
         public string HeaderTitle { get; set; }
-        public List<AccountTransaction> AccountTransactions { get; set; }
+        public IEnumerable<AccountTransaction> AccountTransactions { get; set; }
         public int Id { get; set; }
 
         public int AccountMasterId { get; set; }

@@ -1,0 +1,100 @@
+﻿@model BankApplicationV2.Domain.AccountMaster
+
+@{
+	ViewBag.Title = "Login Success";
+}
+
+<h2>Login Success</h2>
+
+<p>Welcome, @Model.Name!</p>
+
+<div class="top-right-links">
+    @{
+        if (Context.Session.TryGetValue("LoggedInUserAccountId", out byte[] accountMasterIdBytes) && accountMasterIdBytes != null)
+        {
+            int accountMasterId = @Model.Id;
+
+            if (accountMasterId != 0)
+            {
+                <div class="text-left">
+                    <a href="@Url.Action("PerformTransaction", "Transaction", new { accountMasterId })">Perform Transaction</a> &nbsp;&nbsp;&nbsp;
+                    <a href="@Url.Action("TransactionHistory", "Transaction", new { accountMasterId })">View Transaction History</a>
+                </div>
+            }
+            else
+            {
+                <p>Account Master ID not found in session.</p>
+            }
+        }
+        else
+        {
+            <p>Account Master ID not found in session.</p>
+        }
+    }
+</div>
+
+<table class="table table-bordered table-hover">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Balance</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td>@Model.Id</td>
+		<td>@Model.Name</td>
+		<td>@Model.Balance.ToString("C")</td>
+		<td>@Model.Email</td>
+	</tr>
+</table>
+
+<style>
+.text-right {
+	text-align: right;
+}
+</style>
+
+@*
+<p><a href="@Url.Action("Logout", "Login")">Logout</a></p>*@
+
+
+@*
+
+@{
+    ViewBag.Title = "Login Success";
+}
+
+<h2>Login Success</h2>
+
+<p>You have successfully logged in.</p>
+*@
+
+@*
+@model BankApplicationV2.DTOs.LoginDTO
+
+<div class="centered-form">
+    @if (ViewBag.Account != null)
+    {
+        <h2>Welcome, @ViewBag.Account.Name!</h2>
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>@ViewBag.Account.Id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@ViewBag.Account.Name</td>
+            </tr>
+            <tr>
+                <td>Balance</td>
+                <td>@ViewBag.Account.Balance</td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <h2>Invalid username and password.</h2>
+    }
+</div>
+
+*@

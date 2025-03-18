@@ -27,7 +27,8 @@
     @foreach (var cid in Model.AccountTransactions)
     {
         <tr>
-            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Id</td>       
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.Id</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">@cid.AccountMasterId</td>
             <td style="border: 1px solid #ddd; padding: 10px;">@cid.Name</td>
             <td style="border: 1px solid #ddd; padding: 10px;">@cid.Amount</td>
             <td style="border: 1px solid #ddd; padding: 10px;">@cid.Type</td>

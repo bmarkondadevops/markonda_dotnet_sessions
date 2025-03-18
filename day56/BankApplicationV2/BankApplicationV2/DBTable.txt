@@ -1,0 +1,43 @@
+﻿CREATE TABLE AccountMaster (
+    Id INT PRIMARY KEY IDENTITY(1000,1),
+    Name NVARCHAR(100) NOT NULL,
+    Balance DECIMAL(18, 2) NOT NULL DEFAULT 0.00,
+    Email NVARCHAR(100) NOT NULL UNIQUE,
+    Password NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE AccountTransaction (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    AccountMasterId INT NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Amount DECIMAL(18, 2) NOT NULL DEFAULT 0.00,
+    TransactionType NVARCHAR(50) NOT NULL,
+    Date DATETIME NOT NULL DEFAULT GETDATE(),
+    
+    CONSTRAINT FK_AccountTransaction_AccountMaster FOREIGN KEY (AccountMasterId)
+        REFERENCES AccountMaster(Id)
+);
+
+INSERT INTO AccountMaster (Name, Balance, Email, Password)
+VALUES ('Markonda', 1000.00, 'markonda@gmail.com', 'password123');
+
+-- Inserting into AccountTransaction
+INSERT INTO AccountTransaction (AccountMasterId, Name, Amount, TransactionType)
+VALUES (1000, 'Initial Deposit', 1000.00, 'Credit');
+
+
+INSERT INTO AccountMaster (Name, Balance, Email, Password)
+VALUES ('Preethi', 2000.00, 'preethi@gmail.com', 'password123');
+
+-- Inserting into AccountTransaction
+INSERT INTO AccountTransaction (AccountMasterId, Name, Amount, TransactionType)
+VALUES (1001, 'Initial Deposit', 2000.00, 'Credit');
+
+SELECT * FROM AccountMaster
+
+SELECT * FROM AccountTransaction
+
+
+drop table AccountMaster
+
+drop table AccountTransaction
